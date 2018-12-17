@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/Videojuego.js"></script>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script>
+        function guardar(){
+            localStorage.clear();
+            var juegos = new Array();
+            juegos.push(new Videojuego("COD", 10));
+            juegos.push(new Videojuego("FORTNITE", 14));
+            juegos.push(new Videojuego("FALLOUT", 58));
+            localStorage["videojuegos"]=JSON.stringify(juegos);
+        }
+        function leer(){
+            var juegos = JSON.parse(localStorage["videojuegos"]);
+            console.log(juegos);
+        }
+    
+    </script>
+    <title>(Ejemplo Localstorage)</title>
+</head>
+<body>
+    <input type="button" value="Guardar array" onclick="guardar()">
+    <input type="button" value="Leer array" onclick="leer()">
+</body>
+</html>
